@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>angular消息提示</title>
+	    <link rel="stylesheet" href="../org/bootstrap-3.3.4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../org/angularjs/angularjs-toaster/toaster.css"/>
+	    <script type="text/javascript" src="../org/jquery.min.js"></script>
+	    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+	    <script type="text/javascript" src="../org/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../org/angularjs/angularjs-toaster/toaster.js"></script>
+        <script type="text/javascript" src="../org/angularjs/angular-animate/angular-animate.js"></script>
+	 	 <script type="text/javascript" src="msg.js"></script>
+    </head>
+    <body ng-controller="msgCtrl">
+		<h2>创建模态框（Modal）</h2>
+		<!-- 按钮触发模态框 -->
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+		<div>
+			<p>文本：{{name}}</p>
+		</div>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+		            </div>
+		            <div class="modal-body">
+	 					<div ng-include="'model.html'"></div>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" ng-click="submit()">提交更改</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>
+    </body>
+</html>

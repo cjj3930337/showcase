@@ -1,0 +1,62 @@
+<h2>Validation Example</h2>
+
+<form  ng-app="myApp"  ng-controller="validateCtrl" name="myForm" novalidate>
+
+<p>用户名:<br>
+  <input type="text" name="user" ng-model="user" required>
+  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+  <span ng-show="myForm.user.$error.required">用户名是必须的。</span>
+  </span>
+</p>
+
+<p>邮箱:<br>
+  <input type="email" name="email" ng-model="email" required>
+  <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  <span ng-show="myForm.email.$error.required">邮箱是必须的。</span>
+  <span ng-show="myForm.email.$error.email">非法的邮箱。</span>
+  </span>
+</p>
+<p>手机号:<br>
+    <input type="text" name="phone" ng-model="phone" required>
+    <span style="color:red" ng-show="myForm.phone.$dirty && myForm.phone.$invalid"></span>
+    <span ng-show="myForm.phone.$error.required">姓名是必须的.</span>
+</p>
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="name" class="control-label">姓名：</label>
+            <input id="name" type="text" class="form-control" placeholder="请输入姓名" ng-model="name" name="name" required>
+            <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid"></span>
+            <span ng-show="myForm.name.$error.required">姓名是必须的.</span>
+            验证通过：{{myForm.name.$valid}}
+        </div>
+    </div>
+</div>
+<p>
+  <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid 
+    || myForm.email.$dirty && myForm.email.$invalid || myForm.email.$dirty && myForm.phone.$invalid || myForm.name.$dirty && myForm.email.$invalid">
+</p>
+
+</form>
+
+<div class="container-fluid" ng-controller="addStaffCtrl">
+<div class="row">
+    <div class="col-md-12">
+        <form name="staffForm" method="post" novalidate>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="staffName" class="control-label">姓名：</label>
+                            <input id="staffName" name="xm" type="text" class="form-control" placeholder="请输入姓名" ng-model="staffVO.xm" required>
+                            <span style="color:red" ng-show="staffForm.xm.$dirty && staffForm.xm.$invalid"></span>
+                            <span ng-show="staffForm.xm.$error.required">姓名是必须的.</span>
+                            验证状态：{{staffForm.xm.$valid}} 内容：{{staffVO.xm}}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

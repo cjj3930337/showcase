@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>angular消息提示</title>
+	    <link rel="stylesheet" href="../org/bootstrap-3.3.4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../org/angularjs/angularjs-toaster/toaster.css"/>
+	    <script type="text/javascript" src="../org/jquery.min.js"></script>
+	    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+	    <script type="text/javascript" src="../org/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../org/angularjs/angularjs-toaster/toaster.js"></script>
+        <script type="text/javascript" src="../org/angularjs/angular-animate/angular-animate.js"></script>
+    </head>
+    <body ng-controller="msgCtrl">
+        <!-- <toaster-container></toaster-container> -->
+<!--         <toaster-container toaster-options="{'close-button':{ 'toast-warning': true, 'toast-error': false } }"></toaster-container> -->
+        <!-- <toaster-container toaster-options="{'position-class': 'toast-top-full-width'}"></toaster-container> -->
+
+        <!-- <toaster-container toaster-options="{'position-class': 'toast-top-center', 'close-button':true}"></toaster-container> -->
+        <toaster-container toaster-options="{'position-class': 'toast-top-center','close-button':true,'close-html':'<button>Close</button>', 'showCloseButton':true}"></toaster-container>
+
+        <div>
+            <button ng-click="pop()">Show a Toaster</button>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var m = angular.module('myApp', ['toaster', 'ngAnimate'])
+        m.controller('msgCtrl', function($scope, toaster) {
+            $scope.pop = function(){
+                toaster.pop('success', "title", "text");
+                // toaster.pop({
+                //     type: 'error',
+                //     title: 'Title text',
+                //     body: 'Body text',
+                //     showCloseButton: true
+                // });
+                // toaster.pop({
+                //     type: 'success',
+                //     title: 'Title text',
+                //     body: 'Body text',
+                //     showCloseButton: true,
+                //     closeHtml: '<button>Close</button>'
+                // });
+            };
+           
+        });
+    </script>
+ </html>

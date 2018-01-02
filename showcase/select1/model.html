@@ -1,0 +1,35 @@
+<div>
+	<ui-select ng-model="selected.value">
+	    <ui-select-match>
+	        <span ng-bind="$select.selected.name"></span>
+	    </ui-select-match>
+	    <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+	        <span ng-bind="item.name"></span>
+	    </ui-select-choices>
+	</ui-select>
+</div>
+<div class="form-group">
+    <label class="control-label">性别：</label><br/>
+    <div class="radio-inline">
+        <label class="i-checks">
+            <input type="radio" id="optionsRadios1" ng-model="sex" name="staffSex" value="M">
+            <i></i>
+            男
+        </label>
+    </div>
+    <div class="radio-inline">
+        <label class="i-checks">
+            <input type="radio" id="optionsRadios2" ng-model="sex" name="staffSex" value="F">
+            <i></i>
+            女
+        </label>
+    </div>
+    <div class="form-group">
+	    <label class="radio-inline">
+	        <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked> 选项 1
+	    </label>
+	    <label class="radio-inline">
+	        <input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 选项 2
+	    </label>
+	</div>
+</div>
