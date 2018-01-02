@@ -10,10 +10,10 @@
 	    <script type="text/javascript" src="../org/bootstrap-3.3.4/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../org/angularjs/angularjs-toaster/toaster.js"></script>
         <script type="text/javascript" src="../org/angularjs/angular-animate/angular-animate.js"></script>
-        <script type="text/javascript" src="../org/angularjs/ngStorage/ngStorage.js"></script>
+        <script type="text/javascript" src="../org/angularjs/ngstorage/ngStorage.js"></script>
     </head>
     <script type="text/javascript">
-		var ngModule=angular.module('app',['ngStorage']);
+		var ngModule=angular.module('myApp',['ngStorage']);
 		//---------------------------------------------------
 		ngModule.controller('sixthCtrl',function($scope,$localStorage,$sessionStorage) {
 			$scope.$storage = $sessionStorage.$default({
