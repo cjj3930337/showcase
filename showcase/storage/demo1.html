@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>angular ngStorage</title>
+	    <link rel="stylesheet" href="../org/bootstrap-3.3.4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../org/angularjs/angularjs-toaster/toaster.css"/>
+	    <script type="text/javascript" src="../org/jquery.min.js"></script>
+	    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+	    <script type="text/javascript" src="../org/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../org/angularjs/angularjs-toaster/toaster.js"></script>
+        <script type="text/javascript" src="../org/angularjs/angular-animate/angular-animate.js"></script>
+        <script type="text/javascript" src="../org/angularjs/ngStorage/ngStorage.js"></script>
+    </head>
+    <script type="text/javascript">
+		var ngModule=angular.module('app',['ngStorage']);
+		//---------------------------------------------------
+		ngModule.controller('sixthCtrl',function($scope,$localStorage,$sessionStorage) {
+			$scope.$storage = $sessionStorage.$default({
+				city:{
+					cityId:'',
+					cityName:''
+				},
+				cinema:{
+					cityLinkId:'',
+					cinemaId:'',
+					cinemaName:''
+				}
+			});
+			$scope.cityList=[
+				{cityId:001,cityName:'广州'},
+				{cityId:002,cityName:'西安'},
+				{cityId:003,cityName:'北京'}
+			];
+			$scope.cinemaList=[
+			 	{cityLinkId:001,cinemaId:1001,cinemaName:'天娱影城'},
+			 	{cityLinkId:001,cinemaId:1021,cinemaName:'UA影城'},
+			 	{cityLinkId:002,cinemaId:1002,cinemaName:'恒大影城'},
+			 	{cityLinkId:002,cinemaId:1022,cinemaName:'西安影城'},
+			 	{cityLinkId:003,cinemaId:1003,cinemaName:'北京影城'}
+			];
+			$scope.getCity = function(_city){
+				$scope.$storage.city = _city;
+				alert(_city.cityName);
+			}
+			$scope.getCinema = function(_cinema){
+				$scope.$storage.cinema = _cinema;
+				alert(_cinema.cinemaName);
+			}
+		});
+
+	</script>
+
+	<style type="text/css">
+		body{padding:10px;}
+	</style>
+</head>
+
+<body>
+	<div ng-controller="sixthCtrl">
+		<select ng-options="city.cityName for city in cityList" ng-model="cityOption" ng-change="getCity(cityOption);" >
+            <option value="">请选择城市</option>
+        </select>
+        <select ng-options="cinema.cinemaName for cinema in cinemaList | filter:{cityLinkId:$storage.city.cityId}" ng-model="cinemaOption" ng-change="getCinema(cinemaOption);" >
+            <option value="">请选择影院</option>
+        </select>
+		<p>{{$storage.city.cityName}}||{{$storage.cinema.cinemaName}}</p>
+	</div>
+</body>
+</html>
