@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>angular父子控制器传值</title>
+	  <link rel="stylesheet" href="../org/bootstrap-3.3.4/css/bootstrap.css"/>
+	  <script type="text/javascript" src="../org/jquery.min.js"></script>
+	  <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+	  <script type="text/javascript" src="../org/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="../org/angularjs/angular-sanitize/angular-sanitize.js"></script>
+    </head>
+    <body>
+		<div ng-controller="OparentController as pCtrl">
+		    <p>直接访问父控制器的值：{{user}}</p>
+		    <div ng-controller="OchildController as cCtrl">
+		        <p>嵌套如何访问。。父控制器的值：失败：<input ng-model="pUser"/>成功：<input ng-model="obj2.pUser"/></p>
+		        <p>子控制器的值：{{user}}</p>
+		        <button ng-click="modiV()">clk:子控制器内修改父控制器内（作用域）的值</button>
+		        <button ng-click="alert()">clk:子控制器内调用方法</button>
+		    </div>
+		</div>
+		<script>
+		    var m=angular.module('app',[]);
+		    m.controller('OparentController',function($scope){
+		        $scope.user='parent_李四';
+		        $scope.msg={a:'parent_李四',b:4,c:[1,34]};
+		        $scope.alert = function(){
+		        	alert('parent....');
+		        }
+		    });
+		    m.controller('OchildController',function($scope){
+		        $scope.user='child_张三';
+		        $scope.pUser=$scope.msg.a;
+		        $scope.obj2={
+		            pUser:$scope.msg.a
+		        };
+		        $scope.modiV=function(){
+		            $scope.msg.a="parent_李四 is modify";
+		            $scope.obj2.pUser="parent_李四 is modify---obj";
+		            console.log('子控制没有msg，才顺着原型链修改了:',$scope.msg, $scope.pUser);
+		        }
+		        //$scope.alert = function(){
+		        //	alert('child....');
+		        // }
+		    });
+		</script>
+    </body>
+</html>
