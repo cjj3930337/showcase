@@ -1,0 +1,7 @@
+<!--使用angular校验，每一个校验的项都必须用ng-model，不然无法执行在脏检查，就无法校验-->
+<form name="angularForm" novalidate method="post">
+    <!--文件上传指令-->
+    <input type="file" nv-file-select="" uploader="uploader" />
+    <!--图片预览-->
+    <img id="img-preview" ng-src="{{iconUrl}}">
+</form>
