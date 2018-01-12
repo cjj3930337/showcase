@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-switch</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+</head>
+<body ng-app="">
+	我喜欢的网站
+	<select ng-model="myVar">
+		  <option value="runoob">www.runoob.com
+		  <option value="google">www.google.com
+		  <option value="taobao">www.taobao.com
+	</select>
+
+	<hr>
+	<div ng-switch="myVar">
+	  <div ng-switch-when="runoob">
+	     <h1>菜鸟教程</h1>
+	     <p>欢迎访问菜鸟教程</p>
+	  </div>
+	  <div ng-switch-when="google">
+	     <h1>Google</h1>
+	     <p>欢迎访问Google</p>
+	  </div>
+	  <div ng-switch-when="taobao">
+	     <h1>淘宝</h1>
+	     <p>欢迎访问淘宝</p>
+	  </div>
+	  <div ng-switch-default>
+	     <h1>切换</h1>
+	     <p>选择不同选项显示对应的值。</p>
+	  </div>
+	</div>
+	<hr>
+
+	<p> ng-switch 指令根据当前的值显示或隐藏对应部分。</p>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>bind</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('app',['ngSanitize']);
+        app.controller('MyCtrl', function($scope){
+            $scope.str = '<span>aaa<strong>bbb</strong></span>';
+        })
+    </script>
+</head>
+<body ng-controller="MyCtrl">
+    <div ng-bind="str"></div>
+    <div ng-bind-html="str"></div>
+</body>
+</html>

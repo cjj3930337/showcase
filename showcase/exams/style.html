@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-style</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+	<h1 ng-style="myObj">菜鸟教程</h1>
+
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope) {
+		  $scope.myObj = {
+		    "color" : "white",
+		    "background-color" : "coral",
+		    "font-size" : "60px",
+		    "padding" : "50px"
+		  }
+		});
+	</script>
+
+</body>
+</html>

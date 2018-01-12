@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-blur</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+	<style>
+		.striped {
+		    color:white;
+		    background-color:black;
+		}
+		.odd {
+		    color:blue;
+		    background-color:grey;
+		}
+	</style>
+</head>
+<body ng-app="myApp">
+
+	<table ng-controller="myCtrl">
+	<tr ng-repeat="x in records" ng-class-even="'striped'" ng-class-odd="'odd'">
+	  <td>{{x.Name}}</td>
+	  <td>{{x.Country}}</td>  
+	</tr>
+	</table>
+
+<script>
+	var app = angular.module("myApp", []);
+	app.controller("myCtrl", function($scope) {
+	  $scope.records = [
+	    {
+	      "Name" : "Alfreds Futterkiste",
+	      "Country" : "Germany"
+	    },
+	    {
+	      "Name" : "Berglunds snabbk",
+	      "Country" : "Sweden"
+	    },
+	    {
+	      "Name" : "Centro comercial Moctezuma",
+	      "Country" : "Mexico"
+	    },
+	    {
+	      "Name" : "Ernst Handel",
+	      "Country" : "Austria"
+	    },
+	    {
+	      "Name" : "Alfreds Futterkiste",
+	      "Country" : "Germany"
+	    },
+	    {
+	      "Name" : "Berglunds snabbk",
+	      "Country" : "Sweden"
+	    },
+	    {
+	      "Name" : "Centro comercial Moctezuma",
+	      "Country" : "Mexico"
+	    },
+	    {
+	      "Name" : "Ernst Handel",
+	      "Country" : "Austria"
+	    }
+	  ]
+	});
+</script>
+
+</body>
+</html>

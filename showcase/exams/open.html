@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-open</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+</head>
+<body ng-app="">
+
+	点击这里显示 details 列表: <input type="checkbox" ng-model="showDetails"><br>
+	<br>
+
+	<details ng-open="showDetails">
+	  <summary>学的不仅是技术，更是梦想！</summary>
+	  <p> - 菜鸟教程</p>
+	</details>
+
+	<p><b>注意：</b> 目前只有 Opera, Chrome, 和 Safari 浏览器支持 details 标签。</p>
+
+</body>
+</html>

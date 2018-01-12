@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-bind-template</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+   <div ng-app="myApp" ng-bind-template="{{firstName}} {{lastName}}" ></div>
+   <div ng-app="myApp" ng-bind-template="你好，{{userName}}" ></div>
+   <div ng-app="myApp" ng-bind-template="{{test}}" ></div>
+   <div ng-app="myApp" ng-bind-template="a.html" ></div> <!--不可以-->
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Doe";
+            $scope.userName = "zhangsan";
+            $scope.test = "你好， " + $scope.userName;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-list</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+</head>
+	<div ng-app="">
+
+		<p>在输入框中，输入一些文本，并使用逗号分隔它们：</p>
+
+		<input ng-model="customers" ng-list/>
+
+		<p>当使用 ng-list 指令时，你的输入信息会转换为数组，如下所示：</p>
+
+		<pre>{{customers}}</pre>
+
+		</div>
+
+	</body>
+</html>

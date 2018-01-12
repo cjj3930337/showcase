@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-submit</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+	<form ng-submit="myFunc()">
+		  <input type="text">
+		  <input type="submit">
+	</form>
+
+	<p>{{myTxt}}</p>
+
+	<p>以下实例演示了表单提交后 AngularJS 执行行。</p>
+
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope) {
+		  $scope.myTxt = "你还没有点击提交!";
+		  $scope.myFunc = function () {
+		      $scope.myTxt = "你点击了提交!";
+		  }
+	});
+	</script>
+
+</body>
+</html>

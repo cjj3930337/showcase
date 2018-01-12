@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-copy-cut</title>
+    <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+    <script type="text/javascript" src="../org/angularjs/angular-sanitize.min.js"></script>
+</head>
+<body ng-app="">
+
+	<input ng-copy="count = count + 1" ng-init="count=0" value="拷贝这个文本" />
+	<input ng-cut="count = count + 1" ng-init="count=0" value="剪切这个文本" />
+
+	<p>文本被拷贝 {{count}} 次。</p>
+
+	<p>实例中变量 "count" 的值在输入框的文本被拷贝时会自动增加 1。</p>
+
+	<p style="color:red">监听ctrl+c,ctrl+x组合是否按住, 焦点在输入框所在行上</p>
+</body>
+</html>
