@@ -1,0 +1,37 @@
+
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>AngularJS 指令执行顺序</title>
+	  <link rel="stylesheet" href="../org/bootstrap-3.3.4/css/bootstrap.css"/>
+	  <script type="text/javascript" src="../org/jquery.min.js"></script>
+	  <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+	</head>
+	<body>
+		<div ng-controller="ratingController">
+		    <rating></rating>
+		</div>
+
+		<script type="text/javascript">
+		        var app = angular.module('app', []);
+		        app.controller('ratingController',function ($scope) {
+		            console.log('外部控制器');
+		        }).directive('rating', function () {
+		            console.log("指令初始化");
+		            return {
+		                restrict: 'E',
+		                scope: {
+		                    maxStars: '='
+		                },
+		                //controller: 'ratingController',
+		                controller:function(){
+		                    console.log("内部控制器");
+		                },
+		                link: function (scope, el, attrs) {
+		                    console.log('link');
+		                }
+		            };   
+		        });
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+(function (angular) {
+
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function($scope) {
+        //打印使用
+        //1、获取打印数据(根据传进来的url)
+        //2、点击打印
+
+        /**
+         * 获取url参数
+         * 根据约定的参数名称获取对应的信息
+         */
+        $scope.GetQueryString=function(data)
+        {
+             var reg = new RegExp("(^|&)"+data+"=([^&]*)(&|$)");
+             var r = window.location.search.substr(1).match(reg);
+             if(r!=null){
+                 return  decodeURI(r[2]); 
+             }               
+             return null;
+        }   
+        /**
+         * 请求ajax数据
+         * 要是获取失败弹出失败信息
+         */
+        $scope.getPringData=function(DataUrl){     
+            var back=null;          
+            $.ajax({
+                type: 'get',
+                url: DataUrl,
+                async:false,
+                success: function(data){
+                    data=JSON.parse(data);
+                    if(data.Detail.length>0){
+                        //计算总件数
+                        back=data;
+                    }else{
+                        alert("打印数据请求失败！");
+                    }
+                },
+                error: function (e) {                
+                    alert("打印数据请求失败！");
+                }
+            });
+            return back;
+        }               
+
+        /**
+         * 页面打印调用
+         * 页面打印按钮绑定的时间
+         */
+        $scope.printFunc=function(){
+            window.print();
+        }
+        // 获取url中ajax的url
+        var url=decodeURIComponent($scope.GetQueryString("data"));
+        //获取url中用于显示的标题
+        $scope.title=$scope.GetQueryString("title");
+        //获取渲染的数据
+        $scope.PringData=$scope.getPringData(url);
+    });
+})(angular);
