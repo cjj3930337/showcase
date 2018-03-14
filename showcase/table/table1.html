@@ -11,7 +11,6 @@
   <script type="text/javascript" src="../org/bootstrap-3.3.4/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../org/angularjs/angular-ui-select/dist/select.min.js"></script>
   <script type="text/javascript" src="../org/angularjs/angular-sanitize/angular-sanitize.js"></script>
-
 </head>
 <body ng-controller="ctrl">
 	<div class="clear">
@@ -80,12 +79,55 @@
 	                </td>
               	</tr>
         </table>
+
+        <div>
+        	<input type="button" value="test" ng-click="getDate()">
+
+        </div>
 	<script type="text/javascript">
 		var m = angular.module('app', []);
 		m.controller('ctrl', ['$scope', function ($scope){
 		   	$scope.change = function(){
 		   		$scope.selected = !$scope.selected;
 		   	}
+
+		   	$scope.getDate = function(){
+		   		var now = new Date(); //当前日期   
+			    $scope.nowDayOfWeek = now.getDay(); //今天本周的第几天  
+			    $scope.nowYear = now.getYear(); //当前年   
+			    $scope.nowMonth = now.getMonth(); //月   
+			    $scope.nowDay = now.getDate(); //日   
+			    $scope.beginHour="09:00:00";  
+			    $scope.endHour="23:59:59";  
+
+
+			    //获得本周的开端日期   
+				$scope.weekStartDate = new Date($scope.nowYear, $scope.nowMonth, $scope.nowDay - $scope.nowDayOfWeek + 1);   
+
+				//获得本周的停止日期   
+				$scope.weekEndDate = new Date($scope.nowYear, $scope.nowMonth, $scope.nowDay + (6 - $scope.nowDayOfWeek + 1));   
+				console.log($scope.formatDate($scope.weekStartDate));
+				console.log($scope.formatDate($scope.weekEndDate));
+				console.log($scope.weekEndDate);
+
+				console.log($scope.nowYear);
+
+
+		   	}
+
+		   	$scope.formatDate =  function(date) {   
+				$scope.myyear = date.getFullYear();   
+				$scope.mymonth = date.getMonth()+1;   
+				$scope.myweekday = date.getDate();  
+				 
+				if($scope.mymonth < 10){   
+					$scope.mymonth = "0" + $scope.mymonth;   
+				}   
+				if($scope.myweekday < 10){   
+					$scope.myweekday = "0" + $scope.myweekday;   
+				}   
+				return ($scope.myyear+"-"+$scope.mymonth + "-" + $scope.myweekday);   
+			}  
 		}]);
 	</script>
 </body>
