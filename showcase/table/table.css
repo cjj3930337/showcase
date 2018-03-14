@@ -1,0 +1,69 @@
+
+
+
+.schedule_table {
+	border:1px solid #dfdfdf;
+	border-spacing: 2px;
+	border-collapse: collapse;
+}
+
+.full-width-table {
+    width: 100%;
+    font-size: 14px;
+}
+
+.schedule_table th {
+    border: 1px solid #dfdfdf;
+    background-color: #efefef;
+    color: #5c5c5c;
+    padding-left: 9px;
+    height: 45px;
+}
+
+.schedule_table th.thisday {
+	color: #fff;
+    background-color: #258ff1;
+}
+
+.schedule_table td {
+    border: 1px solid #add9c0;
+    padding-left: 9px;
+    height: 97px;
+    color: grey;
+}
+
+.schedule_table td.odd {
+	color: grey;
+    background: #e7f5ff;
+}
+
+.schedule_trpm td.schedule_td:hover {
+	border: 1px solid #258ff1;
+	border-left: 1px solid #258ff1;
+	border-top: 1px solid #258ff1;
+	border-right: 1px solid #258ff1;
+	border-bottom: 1px solid #258ff1;
+}
+
+.schedule_tram td.schedule_td:hover {
+	border: 1px solid #258ff1;
+	border-left: 1px solid #258ff1;
+	border-top: 1px solid #258ff1;
+	border-right: 1px solid #258ff1;
+	border-bottom: 1px solid #258ff1;
+}
+
+.schedule_trpm td.odd.selected {
+	border: 1px solid #258ff1;
+	border-left: 1px solid #258ff1;
+	border-top: 1px solid #258ff1;
+	border-right: 1px solid #258ff1;
+	border-bottom: 1px solid #258ff1;
+}
+
+#aa{
+	border-left: 1px solid #258ff1;
+	border-top: 1px solid #258ff1;
+	border-right: 1px solid #258ff1;
+	border-bottom: 1px solid #258ff1;
+}

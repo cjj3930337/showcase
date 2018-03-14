@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>angularJs ui-select</title>
+  <link rel="stylesheet" href="../org/bootstrap-3.3.4/css/bootstrap.css"/>
+  <link rel="stylesheet" href="../org/angularjs/angular-ui-select/dist/select.css"/>
+  <link rel="stylesheet" href="table.css"/>
+  <script type="text/javascript" src="../org/jquery.min.js"></script>
+  <script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+  <script type="text/javascript" src="../org/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../org/angularjs/angular-ui-select/dist/select.min.js"></script>
+  <script type="text/javascript" src="../org/angularjs/angular-sanitize/angular-sanitize.js"></script>
+
+</head>
+<body ng-controller="ctrl">
+	<div class="clear">
+		<br>
+		<table id="schedule_table" class="schedule_table full-width-table">
+              	<tr style="background: rgb(239, 244, 248);">
+	                <th></th>
+	                <th class="scheDateData scheduleWeekDayExpired">周一（03-12）</th>
+	                <th class="scheDateData scheduleWeekDayExpired" >周二（03-13）</th>
+	                <th class="scheDateData thisday">周三（03.14）</th>
+	                <th class="scheDateData">周四（03.15）</th>
+	                <th class="scheDateData">周五（03.16）</th>
+	                <th class="scheDateData">周六（03.17）</th>
+	                <th class="scheDateData">周日（03.18）</th>
+              	</tr>
+              	<tr class="schedule_tram">
+ 					<td>
+	                   <p title="上午">上午</p>
+	                </td>
+	                <td class="schedule_td {{selected?'selected':''}}" ng-click="change()">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td {{selected?'selected':''}}" ng-click="change()">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td">
+	                	&nbsp;请点击排班
+	                </td>
+              	</tr>
+				<tr class="schedule_trpm">
+ 					<td>
+	                   <p class="am schedulSetName" title="下午">下午</p>
+	                </td>
+	                <td class="schedule_td odd {{selected?'selected':''}}" ng-click="change()">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td odd">
+	                	&nbsp;请点击排班
+	                </td>
+	               <td class="schedule_td odd">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td odd">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td odd">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td odd">
+	                	&nbsp;请点击排班
+	                </td>
+	                <td class="schedule_td odd">
+	                	&nbsp;请点击排班
+	                </td>
+              	</tr>
+        </table>
+	<script type="text/javascript">
+		var m = angular.module('app', []);
+		m.controller('ctrl', ['$scope', function ($scope){
+		   	$scope.change = function(){
+		   		$scope.selected = !$scope.selected;
+		   	}
+		}]);
+	</script>
+</body>
+</html>
