@@ -35,12 +35,10 @@
 }
 
 .schedule_table td.odd {
-	color: grey;
     background: #e7f5ff;
 }
 
-.schedule_trpm td.schedule_td:hover {
-	border: 1px solid #258ff1;
+.schedule_table .schedule_trpm td.schedule_td:hover {
 	border-left: 1px solid #258ff1;
 	border-top: 1px solid #258ff1;
 	border-right: 1px solid #258ff1;
@@ -48,17 +46,27 @@
 }
 
 .schedule_tram td.schedule_td:hover {
-	border: 1px solid #258ff1;
 	border-left: 1px solid #258ff1;
 	border-top: 1px solid #258ff1;
 	border-right: 1px solid #258ff1;
 	border-bottom: 1px solid #258ff1;
 }
 
-.schedule_trpm td.odd.selected {
-	border: 1px solid #258ff1;
-	border-left: 1px solid #258ff1;
+
+.schedule_table .selected {
+	border-left: 1px solid #258ff1 !important;
 	border-top: 1px solid #258ff1;
 	border-right: 1px solid #258ff1;
 	border-bottom: 1px solid #258ff1;
+}
+
+.schedule_table .schedule_p:hover {
+	border-left: 1px solid #dfdfdf;
+	border-top: 1px solid #dfdfdf;
+	border-right: 1px solid #dfdfdf;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.schedule_span {
+	cursor: pointer;
 }
