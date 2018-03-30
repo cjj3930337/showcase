@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>angularJs ui-select</title>
+	<link rel="stylesheet" href="../org/bootstrap-3.3.4/css/bootstrap.css"/>
+	<link rel="stylesheet" href="../org/angularjs/angular-ui-select/dist/select.css"/>
+	<link rel="stylesheet" href="../libs/assets/font-awesome/css/font-awesome.css"/>
+	<link rel="stylesheet" href="table.css"/>
+	<script type="text/javascript" src="../org/jquery.min.js"></script>
+	<script type="text/javascript" src="../org/angularjs/angular/angular.js"></script>
+	<script type="text/javascript" src="../org/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../org/angularjs/angular-ui-select/dist/select.min.js"></script>
+	<script type="text/javascript" src="../org/angularjs/angular-sanitize/angular-sanitize.js"></script>
+   	<script type="text/javascript" src="table3.js"></script>
+</head>
+<body ng-controller="ctrl">
+	<div class="clear">
+		<br>
+		<table id="schedule_table" class="schedule_table full-width-table">
+              	<tr style="background: rgb(239, 244, 248);">
+	                <th></th>
+	                <th class="scheDateData {{curDay==weeks.week_1?'thisday':''}} scheduleWeekDayExpired">周一（{{weeks.week_1}}）</th>
+	                <th class="scheDateData {{curDay==weeks.week_2?'thisday':''}} scheduleWeekDayExpired" >周二（{{weeks.week_2}}）</th>
+	                <th class="scheDateData {{curDay==weeks.week_3?'thisday':''}}">周三（{{weeks.week_3}}）</th>
+	                <th class="scheDateData {{curDay==weeks.week_4?'thisday':''}}">周四（{{weeks.week_4}}）</th>
+	                <th class="scheDateData {{curDay.toString()==weeks.week_5.toString()?'thisday':''}}">周五（{{weeks.week_5}}）</th>
+	                <th class="scheDateData {{curDay==weeks.week_6?'thisday':''}}">周六（{{weeks.week_6}}）</th>
+	                <th class="scheDateData {{curDay==weeks.week_7?'thisday':''}}">周日（{{weeks.week_7}}）</th>
+              	</tr>
+                <tr class="schedule_tram" ng-repeat="scheduleType in scheduleTypes" ng-init="outerIndex = $index">
+                    <td style="border-bottom: 1px solid #dfdfdf; ">
+                        <p title="{{scheduleType.name}}">{{scheduleType.name}}</p>
+                    </td>
+                    <td class="{{weekday >= curDay?'schedule_td':''}} {{outerIndex%2==1?'odd':''}} 		{{$index==innerIndex&&selType==scheduleType.id?'selected':''}}"
+                                ng-click="change(weekday >= curDay, scheduleType.id, outerIndex, $index)" 
+                                ng-disabled="{{dised}}"
+                                ng-repeat="weekday in weeks track by $index">
+                        <div ng-if="weekday >= curDay">
+                            <p class="schedule_p" ng-repeat="schedule in schedules[outerIndex].datas[$index].datas track by $index">
+                                <span style="margin: 5px;">{{schedule.id+'-'+schedule.name}}</span>
+                                <span class="schedule_span" style="color: red;" ng-click="del(test);$event.stopPropagation();">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div ng-if="weekday < curDay">
+                            <p ng-repeat="schedule in schedules[outerIndex].datas[$index].datas track by $index">
+                                <span style="margin: 5px;">{{schedule.id+'-'+schedule.name}}</span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+        </table>
+
+        <div>
+        	<input type="button" value="test" ng-click="getDate()">
+        	<input type="button" value="上一周" ng-click="getPre()">
+        	<input type="button" value="下一周" ng-click="getNext()">
+        	<input type="button" value="本周" ng-click="getCur()">
+
+        	<input type="button" value="保存" ng-click="save()">
+        	<input type="button" value="获取" ng-click="get()">
+        	<input type="button" value="添加" ng-click="add()">
+        </div>
+
+	    <div>
+	        <p>
+	            <span class="label bg-info pos-rlt m-r inline wrapper-xs">
+	                <i class="arrow right arrow-info"></i>Tags:
+	            </span>
+	            <span>可排班科室/医生</span>
+	        </p>
+	    </div>
+
+	    <div class="row wrapper">
+	        <div class="col-md-2 " style="border: 1px solid #add9c0;margin: 10px;cursor:pointer;"
+	            ng-repeat="doctor in doctors" ng-click="selectDoctor(doctor)">
+	            <a herf class="pull-left thumb-sm avatar m-r">
+	                <img src="images/a3.jpg" alt="..." class="img-circle">
+	                <i class="{{doctor.status==true?'on':'busy'}} b-white bottom"></i>
+	            </a>
+	            <div class="clear">
+	                <div><a href>{{doctor.name}}</a></div>
+	                <small class="text-muted">{{doctor.dept}}</small>
+	            </div>
+	        </div>
+	    </div>
+
+</body>
+</html>

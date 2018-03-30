@@ -38,14 +38,14 @@
     background: #e7f5ff;
 }
 
-.schedule_table .schedule_trpm td.schedule_td:hover {
+.schedule_table td.schedule_td:hover {
 	border-left: 1px solid #258ff1;
 	border-top: 1px solid #258ff1;
 	border-right: 1px solid #258ff1;
 	border-bottom: 1px solid #258ff1;
 }
 
-.schedule_tram td.schedule_td:hover {
+ td.schedule_td:hover {
 	border-left: 1px solid #258ff1;
 	border-top: 1px solid #258ff1;
 	border-right: 1px solid #258ff1;
